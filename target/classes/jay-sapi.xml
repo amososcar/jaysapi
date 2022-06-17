@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="78c0ac11-18c4-43aa-a2be-d075d9cb5372" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="jay-sapiFlow" doc:id="0452b58c-a2e2-4dc6-8912-3bcc20d543cd" >
+		<http:listener doc:name="Listener" doc:id="51dc8e83-5236-434c-8b87-d6bf3353dc61" path="/base" config-ref="HTTP_Listener_config"/>
+		<set-payload value="Jay's Hot Stuff!!!!" doc:name="Set Payload" doc:id="b3d3a8e4-97d4-466e-a65e-16795816d02c" />
+		<logger level="INFO" doc:name="Logger" doc:id="9d0356d8-2bb5-4456-bae0-b7045ab011d2" message="#[payload]"/>
+	</flow>
+</mule>
